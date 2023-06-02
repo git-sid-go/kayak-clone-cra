@@ -1,3 +1,4 @@
+import { ReviewScoreFilter } from "../stays-filter-page/ReviewScoreFilter";
 import { StayListItem } from "./StayListItem";
 
 export function StaysContent() {
@@ -5,7 +6,9 @@ export function StaysContent() {
     <div className="pt-24 pl-24 bg-slate-200 min-h-screen">
       <div className="flex">
         {/* Filters section */}
-        <div className="w-56">filters</div>
+        <div className="w-56">
+          <ReviewScoreFilter />
+        </div>
 
         {/* Stays list section */}
         <div>
