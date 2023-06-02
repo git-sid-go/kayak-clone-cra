@@ -5,31 +5,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { ReviewScoreItem } from "./ReviewScoreItem";
 
 export function ReviewScoreFilter() {
   const scoreArray = ["0+", "6+", "7+", "8+", "9+"];
-  const [selectedScore, setSelectedScore] = useState("");
+  const [selectedScore, setSelectedScore] = useState("0+");
 
   const handleClick = (score: string) => {
     setSelectedScore(score);
   };
 
-  const getRating = (score: string) => {
-    if (score === "0+") {
-      return selectedScore === "0+"
-        ? "bg-black text-white font-xl font-bold"
-        : "bg-opacity-80";
-    }
-
-    if (selectedScore !== "0+") {
-      const selectedScoreIndex = scoreArray.indexOf(selectedScore);
-      const currentScoreIndex = scoreArray.indexOf(score);
-      return currentScoreIndex >= selectedScoreIndex
-        ? "bg-black text-white font-xl font-bold"
-        : "bg-opacity-80";
-    }
-
-    return;
+  const resetRating = () => {
+    setSelectedScore("0+");
   };
 
   return (
@@ -38,17 +25,19 @@ export function ReviewScoreFilter() {
         <AccordionItem value="item-1">
           <AccordionTrigger>Review Score</AccordionTrigger>
           <AccordionContent>
+            <div>
+              <button onClick={resetRating} className="text-xxs text-blue-600">
+                x Reset
+              </button>
+            </div>
             <div className="flex">
               {scoreArray.map((score, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center justify-center border border-black rounded-sm cursor-pointer w-8 h-8 mx-1 ${getRating(
-                    score
-                  )}`}
-                  onClick={() => handleClick(score)}
-                >
-                  {score}
-                </div>
+                <ReviewScoreItem
+                  score={score}
+                  handleClick={handleClick}
+                  selectedScore={selectedScore}
+                  scoreArray={scoreArray}
+                />
               ))}
             </div>
           </AccordionContent>
