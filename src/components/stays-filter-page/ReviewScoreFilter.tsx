@@ -23,16 +23,19 @@ export function ReviewScoreFilter() {
     <div>
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Review Score</AccordionTrigger>
-          <AccordionContent>
-            <div>
+          <AccordionTrigger className="font-semibold no-underline -py-2">
+            Review Score
+          </AccordionTrigger>
+          <AccordionContent className="">
+            {selectedScore !== "0+" && (
               <button onClick={resetRating} className="text-xxs text-blue-600">
                 x Reset
               </button>
-            </div>
+            )}
             <div className="flex">
               {scoreArray.map((score, index) => (
                 <ReviewScoreItem
+                  key={index}
                   score={score}
                   handleClick={handleClick}
                   selectedScore={selectedScore}

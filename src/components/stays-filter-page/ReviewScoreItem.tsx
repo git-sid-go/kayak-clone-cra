@@ -10,17 +10,16 @@ export function ReviewScoreItem({
   scoreArray: string[];
 }) {
   const getRatingStyles = (score: string) => {
-    if (selectedScore === "0+" && score === "0+") {
-      return "bg-black text-white font-xl font-bold";
+    const scoreNumber = Number(score[0]);
+    const selectedScoreNumber = Number(selectedScore[0]);
+
+    if (selectedScoreNumber === 0) {
+      return scoreNumber > 0
+        ? "bg-white"
+        : "bg-black text-white font-xl font-bold";
     }
 
-    if (selectedScore === "0+" && score !== "0+") {
-      return "bg-white";
-    }
-
-    const selectedScoreIndex = scoreArray.indexOf(selectedScore);
-    const currentScoreIndex = scoreArray.indexOf(score);
-    return currentScoreIndex >= selectedScoreIndex
+    return scoreNumber >= selectedScoreNumber
       ? "bg-black text-white font-xl font-bold"
       : "bg-white";
   };
