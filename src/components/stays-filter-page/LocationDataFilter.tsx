@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Input } from "../ui/input";
 import {
   DropdownMenu,
@@ -8,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { MOCKDATA_LOCATION } from "./filter-mockdata/MOCKDATA_LOCATION";
-import { LocationPlaceFilter } from "./LocationPlaceFilter";
 
 export function LocationDataFilter() {
   const [isOpen, setIsOpen] = useState(false);

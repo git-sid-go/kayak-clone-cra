@@ -1,3 +1,4 @@
+import { HotelCheckBox } from "../stays-filter-page/HotelCheckBox";
 import { HotelScoreFilter } from "../stays-filter-page/HotelScoreFilter";
 import { LocationFilter } from "../stays-filter-page/LocationFilter";
 import { ReviewScoreFilter } from "../stays-filter-page/ReviewScoreFilter";
@@ -12,6 +13,7 @@ export function StaysContent() {
           <HotelScoreFilter />
           <ReviewScoreFilter />
           <LocationFilter />
+          <HotelCheckBox />
         </div>
         {/* Stays list section */}
         <div>
