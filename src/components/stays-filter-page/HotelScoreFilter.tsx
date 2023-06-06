@@ -5,10 +5,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
-import { ReviewScoreItem } from "./ReviewScoreItem";
+import { HotelScoreItem } from "./HotelScoreItem";
 
-export function ReviewScoreFilter() {
-  const scoreArray = ["0+", "6+", "7+", "8+", "9+"];
+export function HotelScoreFilter() {
+  const HotelScoreArray = ["0+", "1", "2", "3", "4"];
+
   const [selectedScore, setSelectedScore] = useState("0+");
 
   const handleClick = (score: string) => {
@@ -24,7 +25,7 @@ export function ReviewScoreFilter() {
       <Accordion type="single" collapsible defaultValue="item-1">
         <AccordionItem value="item-1">
           <AccordionTrigger className="font-semibold no-underline -py-2">
-            Review Score
+            Hotel Class
           </AccordionTrigger>
           <AccordionContent>
             {selectedScore !== "0+" && (
@@ -32,14 +33,14 @@ export function ReviewScoreFilter() {
                 x Reset
               </button>
             )}
-            <div className="flex py-4">
-              {scoreArray.map((score, index) => (
-                <ReviewScoreItem
+            <div className="flex">
+              {HotelScoreArray.map((score, index) => (
+                <HotelScoreItem
                   key={index}
                   score={score}
                   handleClick={handleClick}
                   selectedScore={selectedScore}
-                  scoreArray={scoreArray}
+                  HotelScoreArray={HotelScoreArray}
                 />
               ))}
             </div>
