@@ -7,17 +7,23 @@ import {
 } from "../ui/accordion";
 import { HotelScoreItem } from "./HotelScoreItem";
 
-export function HotelScoreFilter() {
+interface HotelScoreFilterProps {
+  onValueChange: (value: string) => void;
+}
+
+export function HotelScoreFilter({ onValueChange }: HotelScoreFilterProps) {
   const HotelScoreArray = ["0+", "1", "2", "3", "4"];
 
   const [selectedScore, setSelectedScore] = useState("0+");
 
   const handleClick = (score: string) => {
     setSelectedScore(score);
+    onValueChange(score); // Call the callback function
   };
 
   const resetRating = () => {
     setSelectedScore("0+");
+    onValueChange("0+"); // Call the callback function
   };
 
   return (

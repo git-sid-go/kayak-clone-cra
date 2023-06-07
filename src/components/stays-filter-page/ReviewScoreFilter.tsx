@@ -6,17 +6,21 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 import { ReviewScoreItem } from "./ReviewScoreItem";
-
-export function ReviewScoreFilter() {
+interface ReviewScoreFilterProps {
+  onValueChange: (value: string) => void;
+}
+export function ReviewScoreFilter({ onValueChange }: ReviewScoreFilterProps) {
   const scoreArray = ["0+", "6+", "7+", "8+", "9+"];
   const [selectedScore, setSelectedScore] = useState("0+");
 
   const handleClick = (score: string) => {
     setSelectedScore(score);
+    onValueChange(score); // Call the callback function
   };
 
   const resetRating = () => {
     setSelectedScore("0+");
+    onValueChange("0+"); // Call the callback function
   };
 
   return (
