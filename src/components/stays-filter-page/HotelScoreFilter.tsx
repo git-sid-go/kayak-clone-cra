@@ -18,12 +18,12 @@ export function HotelScoreFilter({ onValueChange }: HotelScoreFilterProps) {
 
   const handleClick = (score: string) => {
     setSelectedScore(score);
-    onValueChange(score); // Call the callback function
+    onValueChange(score);
   };
 
   const resetRating = () => {
     setSelectedScore("0+");
-    onValueChange("0+"); // Call the callback function
+    onValueChange("0+");
   };
 
   return (
